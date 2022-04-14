@@ -3,6 +3,8 @@ import { AiFillPlayCircle } from 'react-icons/ai';
 import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
 
+import { useContext } from 'react';
+import { TransactionContext } from '../context/TransactionContext';
 import { Loader } from './';
 
 /* Special Components */
@@ -25,12 +27,10 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 
 const Welcome = () => {
 
+   const { connectWallet, currentAccount } = useContext(TransactionContext);
+
 
   /* Ethereum functions */
-
-  const connectWallet = () => {
-
-  }
 
   const handleSubmit = () => {
 
@@ -51,16 +51,21 @@ const Welcome = () => {
             <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
               Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.
             </p>
-            <button
-              type="button"
-              onClick={connectWallet}
-              className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
-            >
-              <AiFillPlayCircle className="text-white mr-2" />
-              <p className="text-white text-base font-semibold">
-                Connect Wallet
-              </p>
-            </button>
+            {!currentAccount && (
+                <button
+                type="button"
+                onClick={connectWallet}
+                className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+                >
+                <AiFillPlayCircle className="text-white mr-2" />
+                <p className="text-white text-base font-semibold">
+                  Connect Wallet
+                </p>
+                </button>
+            )
+
+            }
+          
 
             <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
               <div className={`rounded-tl-2xl ${companyCommonStyles}`}>Reliability</div>
@@ -85,7 +90,7 @@ const Welcome = () => {
                   </div>
                   <div>
                     <p className="text-white font-light text-sm">
-                      0x0ir87..43r
+                      {currentAccount}
                     </p>
                     <p className="text-white font-semibold text-lg mt-1">
                       Ethereum
