@@ -27,12 +27,21 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 
 const Welcome = () => {
 
-   const { connectWallet, currentAccount } = useContext(TransactionContext);
+   const { connectWallet, currentAccount, formData, handleChange, sendTransaction, isLoading } = useContext(TransactionContext);
 
 
   /* Ethereum functions */
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
+
+    //We dont want to reload the page when submit the form
+    e.preventDefault();
+
+    //if we dont have all data -> out of the function
+    if(!addressTo ||!amount || !keyword || !message) return;
+    //else
+    sendTransaction();
 
   }
 
@@ -102,10 +111,10 @@ const Welcome = () => {
 
               
               <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-                <Input placeholder="Address To" name="addressTo" type="text" handleChange={null} />
-                <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={null} />
-                <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={null} />
-                <Input placeholder="Enter Message" name="message" type="text" handleChange={null} />
+                <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
+                <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
+                <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
+                <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
 
                 <div className="h-[1px] w-full bg-gray-400 my-2" />
 
