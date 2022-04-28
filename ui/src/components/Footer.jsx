@@ -1,5 +1,6 @@
 import logo from '../../images/logo.png';
 
+
 const Footer = () => {
   return (
     <div className='w-full flex md:justify-center justify-between items-center flex-col p-4 gradient-bg-footer'>
@@ -15,12 +16,12 @@ const Footer = () => {
         </div>
       </div>
       <div className='flex justify-center items-center flex-col'>
-        <p className='text-white text-sm text-center'>This is a Draft Digital Cryto Card</p>
-        <p className='text-white text-sm text-center'>Made with love by MG</p>
+        <p className='text-white text-sm text-center'>This is a Draft Digital Cryto Card.</p>
+        <p className='text-white text-sm text-center flex flex-row'>Made with 💚 by MG. Built with React, Tailwind CSS & Ether.js. Deployed to Netlify.</p>
       </div>
       <div className='sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5'/>
       <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
-      <p className="text-white text-left text-xs">@kryptomastery2022</p>
+      <p className="text-white text-left text-xs">info@draftdigital.org</p>
       <p className="text-white text-right text-xs">All rights reserved</p>
     </div>
     </div>
