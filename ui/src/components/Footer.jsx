@@ -9,13 +9,13 @@ import {AiFillHeart} from 'react-icons/ai';
 
 const Footer = () => {
   return (
-    <section id='AboutMe' className='AboutMe'>
-    <a href='#header' className='footer__logo'>aitor.zaldua@draftdigital.org</a>
+    <section id='aboutMe' className='AboutMe'>
+    <p className='footer__logo'>aitor.zaldua@draftdigital.org</p>
 
     <ul className='permalinks'>
-      <li><a href='#home'>Home</a></li>
-      <li><a href='#Bubbles'>Community</a></li>
-      <li><a href='#Markets'>Market</a></li>
+      <li><a href='#transfers'>Transfers</a></li>
+      <li><a href='#instructions'>Instructions</a></li>
+      <li><a href='#transactions'>Transactions</a></li>
       <li><a href='https://aitorzaldua.netlify.app/' target="_blank" rel="noreferrer">MyPortfolio</a></li>
     </ul>
 
